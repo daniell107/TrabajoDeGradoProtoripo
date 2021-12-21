@@ -134,13 +134,12 @@ def botonAcc():
         prediccion = algoritmo.predict(matrEst)
         
         if(prediccion[1] == 1):
-            des = "incurrir en un bajo rendimiento"
+            des = "El estudiante tiende a incurrir en un bajo rendimiento académico "
         else:
-            des = "no incurrir en un bajo rendimiento"
+            des = "El estudiante no tiende a incurrir en un bajo rendimiento académico"
     
-        fontS = tkFont.Font(family="times new roman", size=12)
-        tk.Label(tkVent, text="El estudiante tiene tendencia a "+des, bg="#FFFFFF", font= fontS).place(x=330,y=460)
-
+        
+        tk.messagebox.showinfo("Resultado",des,)
 
 def cargar():
         
@@ -207,7 +206,7 @@ def cargar():
 
 #Interfaz
 tkVent = tk.Tk()
-tkVent.geometry("850x550")
+tkVent.geometry("1000x647")
 tkVent.resizable(0,0)
 tkVent.iconbitmap('img/logoU.ico')
 tkVent.config(bg="white")
@@ -220,90 +219,90 @@ labelFondo = tk.Label(tkVent,image=fondo).place(x=0, y=0)
 
 
 fontStyle = tkFont.Font(family="times new roman", size=20)
-labelTittle = tk.Label(tkVent, text="Sistema de alerta temprana de BRA", bg="#FFFFFF", font= fontStyle).place(x=220, y=80)
+labelTittle = tk.Label(tkVent, text="Sistema de alerta temprana de BRA", bg="#FFFFFF", font= fontStyle).place(x=300, y=80)
 
 
-tk.Label(tkVent, text="Tipo de programa:", bg="#FFFFFF").place(x=10,y=145)
-comboTipoProg = ttk.Combobox(tkVent, state="readonly")
+tk.Label(tkVent, text="Tipo de programa:", bg="#FFFFFF",font=("Verdana",14)).place(x=50,y=145)
+comboTipoProg = ttk.Combobox(tkVent, state="readonly",font=("Verdana",12),width=13)
 comboTipoProg["values"]=["1 (Pregrado)","0 (Tecnológico)"]
-comboTipoProg.place(x = 190,y =145)
+comboTipoProg.place(x=300,y =150)
 
-tk.Label(tkVent, text="Jornada:", bg="#FFFFFF").place(x=10,y=175)
-comboJornada = ttk.Combobox(tkVent, state="readonly")
+tk.Label(tkVent, text="Jornada:", bg="#FFFFFF",font=("Verdana",14)).place(x=50,y=175)
+comboJornada = ttk.Combobox(tkVent, state="readonly",font=("Verdana",12),width=13)
 comboJornada["values"]=["0 (Diurno)","1 (Nocturno)"]
-comboJornada.place(x = 190,y =175)
+comboJornada.place(x=300,y =180)
 
 
-tk.Label(tkVent, text="Sexo:", bg="#FFFFFF").place(x=10,y=205)
-comboSexo = ttk.Combobox(tkVent, state="readonly") 
+tk.Label(tkVent, text="Sexo:", bg="#FFFFFF",font=("Verdana",14)).place(x=50,y=205)
+comboSexo = ttk.Combobox(tkVent, state="readonly",font=("Verdana",12),width=13) 
 comboSexo["values"]=["1 (Masculino)","0 (Femenino)"]
-comboSexo.place(x = 190,y =205)
+comboSexo.place(x=300,y =210)
 
-tk.Label(tkVent, text="Edad de ingreso:", bg="#FFFFFF").place(x=10,y=235)
-edad = tk.Entry(tkVent,  width=6)
-edad.place(x = 190,y =235)
+tk.Label(tkVent, text="Edad de ingreso:", bg="#FFFFFF",font=("Verdana",14)).place(x=50,y=235)
+edad = tk.Entry(tkVent,  width=6,font=("Verdana",12))
+edad.place(x=300,y =240)
 
 
 
-tk.Label(tkVent, text="Ciudad residencia:", bg="#FFFFFF").place(x=10,y=265)
-comboCity = ttk.Combobox(tkVent, state="readonly")
+tk.Label(tkVent, text="Ciudad residencia:", bg="#FFFFFF",font=("Verdana",14)).place(x=50,y=265)
+comboCity = ttk.Combobox(tkVent, state="readonly",font=("Verdana",12),width=13)
 comboCity["values"]=["0 (Tuluá)","1 (Otro)"]
-comboCity.place(x = 190,y =265)
+comboCity.place(x=300,y =270)
 
 
-tk.Label(tkVent, text="Condicion de excepsion:", bg="#FFFFFF").place(x=10,y=295)
-comboExcep = ttk.Combobox(tkVent, state="readonly")
+tk.Label(tkVent, text="Condicion de excepsion:", bg="#FFFFFF",font=("Verdana",14)).place(x=50,y=295)
+comboExcep = ttk.Combobox(tkVent, state="readonly",font=("Verdana",12),width=13)
 comboExcep["values"]=["0 (NO)","1 (SI)"]
-comboExcep.place(x = 190,y =295)
+comboExcep.place(x=300,y =300)
 
-tk.Label(tkVent, text="Semestres matriculados:", bg="#FFFFFF").place(x=10,y=325)
-semestres = tk.Entry(tkVent,  width=6)
-semestres.place(x = 190,y =325)
-
-
-tk.Label(tkVent, text="Promedio general del estudiante:", bg="#FFFFFF").place(x=400,y=145)
-promGen = tk.Entry(tkVent,  width=6)
-promGen.place(x = 680,y =145)
-
-tk.Label(tkVent, text="Promedio de materias de Ingenieria:", bg="#FFFFFF").place(x=400,y=175)
-promIng = tk.Entry(tkVent,  width=6)
-promIng.place(x = 680,y =175)
-
-tk.Label(tkVent, text="Promedio de materias de Ciencias:", bg="#FFFFFF").place(x=400,y=205)
-promCien = tk.Entry(tkVent,  width=6)
-promCien.place(x = 680,y =205)
-
-tk.Label(tkVent, text="Promedio de otras materias:", bg="#FFFFFF").place(x=400,y=235)
-promOtra = tk.Entry(tkVent,  width=6)
-promOtra.place(x = 680,y =235)
-
-tk.Label(tkVent, text="Proporcion creditos  aprobados:", bg="#FFFFFF").place(x=400,y=265)
-credAproba = tk.Entry(tkVent,  width=6)
-credAproba.place(x = 680,y =265)
+tk.Label(tkVent, text="Semestres matriculados:", bg="#FFFFFF",font=("Verdana",14)).place(x=50,y=325)
+semestres = tk.Entry(tkVent,  width=6,font=("Verdana",12))
+semestres.place(x=300,y =330)
 
 
-tk.Label(tkVent, text="Proporcion creditos  reprobados:", bg="#FFFFFF").place(x=400,y=295)
-credReproba = tk.Entry(tkVent,  width=6)
-credReproba.place(x = 680,y =295)
+tk.Label(tkVent, text="Promedio general del estudiante:", bg="#FFFFFF",font=("Verdana",14)).place(x=500,y=145)
+promGen = tk.Entry(tkVent,  width=6,font=("Verdana",12))
+promGen.place(x = 880,y =145)
+
+tk.Label(tkVent, text="Promedio de materias de Ingenieria:", bg="#FFFFFF",font=("Verdana",14)).place(x=500,y=175)
+promIng = tk.Entry(tkVent,  width=6,font=("Verdana",12))
+promIng.place(x = 880,y =175)
+
+tk.Label(tkVent, text="Promedio de materias de Ciencias:", bg="#FFFFFF",font=("Verdana",14)).place(x=500,y=205)
+promCien = tk.Entry(tkVent,  width=6,font=("Verdana",12))
+promCien.place(x = 880,y =205)
+
+tk.Label(tkVent, text="Promedio de otras materias:", bg="#FFFFFF",font=("Verdana",14)).place(x=500,y=235)
+promOtra = tk.Entry(tkVent,  width=6,font=("Verdana",12))
+promOtra.place(x = 880,y =235)
+
+tk.Label(tkVent, text="Proporcion creditos  aprobados:", bg="#FFFFFF",font=("Verdana",14)).place(x=500,y=265)
+credAproba = tk.Entry(tkVent,  width=6,font=("Verdana",12))
+credAproba.place(x = 880,y =265)
 
 
-tk.Label(tkVent, text="Proporcion materias canceladas:", bg="#FFFFFF").place(x=400,y=325)
-canceladas = tk.Entry(tkVent,  width=6)
-canceladas.place(x = 680,y =325)
+tk.Label(tkVent, text="Proporcion creditos  reprobados:", bg="#FFFFFF",font=("Verdana",14)).place(x=500,y=295)
+credReproba = tk.Entry(tkVent,  width=6,font=("Verdana",12))
+credReproba.place(x = 880,y =295)
 
-tk.Label(tkVent, text="Proporcion materias habilitadas:", bg="#FFFFFF").place(x=400,y=355)
-habilitadas = tk.Entry(tkVent,  width=6)
-habilitadas.place(x = 680,y =355)
+
+tk.Label(tkVent, text="Proporcion materias canceladas:", bg="#FFFFFF",font=("Verdana",14)).place(x=500,y=325)
+canceladas = tk.Entry(tkVent,  width=6,font=("Verdana",12))
+canceladas.place(x = 880,y =325)
+
+tk.Label(tkVent, text="Proporcion materias habilitadas:", bg="#FFFFFF",font=("Verdana",14)).place(x=500,y=355)
+habilitadas = tk.Entry(tkVent,  width=6,font=("Verdana",12))
+habilitadas.place(x = 880,y =355)
 
 
 
 tk.Label(tkVent, text="Daniel Mejia V.", bg="#FFFFFF").place(x=5,y=520)
 
-boton = tk.Button(tkVent,text="Predicción", command=botonAcc, height=2, width=15)
-boton.place(x=365,y=400)
+boton = tk.Button(tkVent,text="Predicción", command=botonAcc, height=2, width=15,font=("Verdana",12))
+boton.place(x=500,y=400)
 
-Bcargar = tk.Button(tkVent,text="Cargar Datos", command=cargar, height=1, width=15)
-Bcargar.place(x=365,y=450)
+Bcargar = tk.Button(tkVent,text="Cargar Datos", command=cargar, height=2, width=15,font=("Verdana",12))
+Bcargar.place(x=300,y=400)
 
 tk.Button(tkVent)
 
